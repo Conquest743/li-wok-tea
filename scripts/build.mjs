@@ -1,4 +1,5 @@
-import { cp, mkdir, rm } from 'node:fs/promises';
+import { cp, mkdir, rm, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 const root = resolve('.');
 const output = resolve(root, 'dist');
@@ -6,4 +7,8 @@ if (output !== resolve(root, 'dist')) throw new Error('Unexpected build output')
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await cp(resolve(root, 'site'), output, { recursive: true });
+const cssVersion = createHash('sha256').update(await readFile(resolve(output, 'styles.css'))).digest('hex').slice(0, 12);
+const htmlPath = resolve(output, 'index.html');
+const html = await readFile(htmlPath, 'utf8');
+await writeFile(htmlPath, html.replace(/href="\.\/styles\.css(?:\?[^"]*)?"/, `href="./styles.css?v=${cssVersion}"`));
 console.log('Static site built in dist/');

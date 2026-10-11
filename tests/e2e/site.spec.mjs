@@ -73,6 +73,17 @@ test('assets, internal buttons, responsive layout and reduced motion are sound',
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await expect(page.locator('.hero-photo img')).toBeVisible();
+  await expect(page.locator('link[rel="stylesheet"][href*="styles.css"]')).toHaveAttribute('href', /styles\.css\?v=[a-f0-9]{12}$/);
+  const teaCards = await page.locator('.tea-varieties span').evaluateAll(cards => cards.map(card => {
+    const box = card.getBoundingClientRect();
+    return { x: box.x, y: box.y, width: box.width };
+  }));
+  expect(teaCards).toHaveLength(4);
+  expect(teaCards[0].y).toBe(teaCards[1].y);
+  expect(teaCards[2].y).toBe(teaCards[3].y);
+  expect(teaCards[0].x).toBe(teaCards[2].x);
+  expect(teaCards[1].x).toBe(teaCards[3].x);
+  expect(teaCards[0].width).toBeCloseTo(teaCards[1].width, 0);
   for (const image of await page.locator('main img').all()) {
     await image.scrollIntoViewIfNeeded();
     await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBe(true);

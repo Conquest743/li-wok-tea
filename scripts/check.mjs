@@ -12,6 +12,6 @@ const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1])
 for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const value = match[1];
   if (value.startsWith('#')) assert.ok(ids.has(value.slice(1)), `Missing anchor ${value}`);
-  if (value.startsWith('./')) await access(resolve('site', value));
+  if (value.startsWith('./')) await access(resolve('site', value.split(/[?#]/)[0]));
 }
 console.log('30 unique menu items, local assets, anchors and published copy validated.');
