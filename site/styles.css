@@ -82,7 +82,7 @@ p { line-height: 1.7; }
 .hero-location { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 12px; margin-top: 20px; }
 .hero-location .icon { width: 16px; height: 16px; color: var(--red); }
 .hero-location a:hover { color: var(--white); }
-.hero h1 { font-size: clamp(3rem, 4.8vw, 4.35rem); line-height: 1.16; white-space: nowrap; margin-bottom: 26px; }
+.hero h1 { font-size: clamp(2.8rem, 4.1vw, 3.8rem); line-height: 1.16; white-space: nowrap; margin-bottom: 26px; }
 .hero-copy > p { font-size: 15px; color: #d4cfc4; line-height: 1.8; }
 .hero-actions { display: flex; align-items: center; gap: 30px; margin-top: 32px; }
 .hero-details { display: flex; gap: 24px; font-size: 12px; color: var(--muted); margin-top: 39px; }
@@ -96,8 +96,6 @@ p { line-height: 1.7; }
 .hero-side { position: absolute; right: -12px; top: 46%; transform: rotate(90deg) translateY(-38px); font-size: 10px; letter-spacing: .2em; }
 .hero-photo-link { position: absolute; left: 38px; bottom: -32px; display: flex; align-items: center; gap: 20px; color: var(--ink); background: var(--red); padding: 16px 20px; font: 19px var(--display); transform: rotate(-5deg); }
 .hero-photo-link:hover { background: #ff594b; }
-.hero-scroll { position: absolute; left: 40px; bottom: 28px; display: flex; align-items: center; gap: 18px; font-size: 10px; color: var(--muted); }
-.hero-scroll .icon { transform: rotate(90deg); width: 17px; height: 17px; }
 .brand-ribbon { background: var(--red); color: var(--ink); padding: 17px 24px; display: flex; align-items: center; justify-content: space-around; gap: 30px; overflow: hidden; white-space: nowrap; font: 18px var(--display); }
 .brand-ribbon span:nth-child(even) { font-size: 26px; }
 @keyframes photo-arrive { from { transform: rotate(0) translateY(14px); clip-path: inset(0 0 6% 0); } to { transform: rotate(3deg); clip-path: inset(0); } }
@@ -150,8 +148,8 @@ input::placeholder, textarea::placeholder { color: #aaa397; opacity: 1; }
 .tea-section { background: var(--paper); color: var(--ink); display: grid; grid-template-columns: 1fr .92fr; gap: 110px; align-items: center; }
 .tea-icon { width: 44px; height: 44px; stroke: var(--red-deep); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; fill: none; margin-bottom: 28px; }
 .tea-copy > p { font-size: 15px; margin-top: 25px; }
-.tea-varieties { margin-top: 26px; display: flex; flex-wrap: wrap; max-width: 350px; gap: 10px; }
-.tea-varieties span { padding: 9px 12px; border: 1px solid #b7ac99; font-size: 12px; border-radius: 3px; }
+.tea-varieties { margin-top: 26px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 350px; gap: 10px; }
+.tea-varieties span { padding: 13px 12px; border-bottom: 1px solid #b7ac99; font-size: 13px; }
 .tea-copy > .tea-explanation { font-size: 13px; max-width: 48ch; color: #655b4b; margin: 24px 0 28px; }
 .tea-image { position: relative; height: 555px; padding: 12px; border: 1px solid #b5a68f; }
 .tea-image img { height: 100%; width: 100%; object-fit: cover; }
@@ -245,17 +243,16 @@ dialog::backdrop { background: #000b; }
 @keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
 @keyframes dialog-in { from { transform: translateY(12px); } to { transform: translateY(0); } }
 
-@media (min-width: 1600px) { .hero { padding-left: 0; padding-right: 0; gap: 75px; } .hero-scroll { left: 0; } }
+@media (min-width: 1600px) { .hero { padding-left: 0; padding-right: 0; gap: 75px; } }
 @media (max-width: 1150px) {
   .header-phone { display: none; }
   .hero { gap: 15px; padding-left: 32px; padding-right: 32px; min-height: 650px; }
-  .hero h1 { font-size: 4.65vw; }
+  .hero h1 { font-size: 4vw; }
   .hero-art { height: 480px; padding-left: 26px; padding-right: 24px; }
   .hero-photo { height: 430px; }
   .hero-disc { width: 360px; height: 360px; top: 50px; border-width: 35px; }
   .hero-seal { width: 115px; height: 115px; }
   .hero-actions { gap: 18px; flex-wrap: wrap; }
-  .hero-scroll { left: 32px; }
   .place-copy { padding: 70px 35px; }
   .tea-section { gap: 60px; }
   .reviews-section { gap: 65px; }
@@ -287,7 +284,6 @@ dialog::backdrop { background: #000b; }
   .hero-seal { width: 104px; height: 104px; right: 13px; top: 0; }
   .hero-photo-link { bottom: -25px; left: 30px; font-size: 16px; padding: 13px 18px; }
   .hero-side { display: none; }
-  .hero-scroll { left: 24px; bottom: 23px; }
   .brand-ribbon { justify-content: flex-start; font-size: 15px; padding: 12px 24px; gap: 24px; }
   .section-heading { align-items: flex-start; gap: 16px; margin-bottom: 28px; }
   .section-heading > .button { font-size: 11px; min-height: 44px; padding: 11px 12px; gap: 7px; white-space: nowrap; }
@@ -327,7 +323,7 @@ dialog::backdrop { background: #000b; }
   .footer p { max-width: none; }
 }
 @media (max-width: 560px) {
-  .hero h1 { font-size: 7.4vw; }
+  .hero h1 { font-size: 6.6vw; }
   .hero-details { gap: 16px; font-size: 10px; }
   .hero-details span + span { padding-left: 16px; }
   .hero-art { height: 335px; padding: 20px 26px; }

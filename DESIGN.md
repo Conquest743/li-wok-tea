@@ -15,7 +15,7 @@ colors:
 typography:
   display:
     fontFamily: "Oswald, sans-serif"
-    fontSize: "clamp(3rem, 4.8vw, 4.35rem)"
+    fontSize: "clamp(2.8rem, 4.1vw, 3.8rem)"
     fontWeight: 600
     lineHeight: 1.16
     letterSpacing: "-.025em"
@@ -143,7 +143,7 @@ Controls use modest corners: fields and category buttons use the field radius, b
 Primary red, outline, paper and ink variants share a minimum height (54px), semibold Golos and the same padding. Outline hover reverses to warm white with ink text; paper hover becomes white; ink hover becomes warm charcoal. Icon-only buttons are (44px) square. Global keyboard focus is a red outline (3px), offset (5px); disabled buttons fade to (.5) opacity.
 
 ### Categories and menu rows
-Category controls expose `aria-pressed`; selected state fills red with ink text. Menu rows pair dish details with an Oswald price and circular add control. Quantity controls replace add controls, use tabular counts, and preserve logical keyboard focus after rerendering. Tea variety chips are passive bordered labels, not filters.
+Category controls expose `aria-pressed`; selected state fills red with ink text. Menu rows pair dish details with an Oswald price and circular add control. Quantity controls replace add controls, use tabular counts, and preserve logical keyboard focus after rerendering. Tea varieties are a passive two-column, two-row list with aligned underlined entries, not interactive filters. Headings use concrete descriptions of the café and its services; avoid invented slogans and scroll prompts.
 
 ### Fields
 Labeled fields use ink fill, warm white text, control-border strokes and minimum height (48px). Search is an underline variant with a clear control. Native HTML input constraints provide validation; no custom error palette is established.
