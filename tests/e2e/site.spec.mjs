@@ -2,6 +2,24 @@ import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => { await page.goto('/'); await expect(page.locator('.menu-item')).toHaveCount(8); });
 
+test('section navigation hides previous-section strips under the header', async ({ page }, testInfo) => {
+  for (const [name, id] of [['Меню', 'menu'], ['Наше место', 'place'], ['Чай', 'tea']]) {
+    if (testInfo.project.name === 'mobile') {
+      await page.getByRole('button', { name: 'Открыть навигацию', exact: true }).click();
+      await page.locator('#mobile-nav').getByRole('link', { name, exact: true }).click();
+    } else {
+      await page.locator('.desktop-nav').getByRole('link', { name, exact: true }).click();
+    }
+    await expect.poll(() => page.evaluate(sectionId => {
+      const top = document.getElementById(sectionId).getBoundingClientRect().top;
+      const headerBottom = document.querySelector('.header').getBoundingClientRect().bottom;
+      return Math.abs(top - headerBottom + 8);
+    }, id)).toBeLessThan(1);
+    await page.screenshot({ path: `artifacts/${testInfo.project.name}-anchor-${id}.png`, animations: 'disabled' });
+  }
+  expect(await page.locator('#contacts').evaluate(element => getComputedStyle(element).scrollMarginTop)).toBe('0px');
+});
+
 test('menu categories, cross-category search, empty state and reset work', async ({ page }) => {
   await page.getByRole('button', { name: 'Супы', exact: true }).click();
   await expect(page.locator('.menu-item')).toHaveCount(3);

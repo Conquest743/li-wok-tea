@@ -125,7 +125,7 @@ Broad editorial sections alternate with dense menu rows. Main section padding is
 
 At (1150px) the header phone hides and compositions tighten. At (800px), padding becomes (64px 24px), the header becomes (76px), hero/place/contacts stack, navigation switches to a toggle and categories scroll horizontally. At (560px), menu, tea, takeaway and reviews stack; the nonempty cart gets a fixed bottom action and footer clearance. At (1600px) the hero removes outer padding. These are content breakpoints, not a generalized device scale.
 
-Sticky-header anchor clearance is (112px), changing to (92px) at the tablet breakpoint. Keep actions and photo captions spatially separate when reducing widths.
+Sticky-header anchor clearance is (112px), changing to (92px) at the tablet breakpoint. Menu, place and tea compensate this clearance with a negative scroll margin, placing their section edge (8px) under the fixed header so previous-section strips remain hidden. Contacts retain their original anchor behavior. Keep actions and photo captions spatially separate when reducing widths.
 
 ## Elevation & Depth
 

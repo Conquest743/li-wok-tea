@@ -11,12 +11,14 @@
   --display: 'Oswald', sans-serif;
   --body: 'Golos Text', sans-serif;
   --ease: cubic-bezier(.16, 1, .3, 1);
+  --header-height: 94px;
+  --anchor-clearance: 112px;
   color-scheme: dark;
   font-family: var(--body);
   color: var(--white);
   background: var(--ink);
   scroll-behavior: smooth;
-  scroll-padding-top: 112px;
+  scroll-padding-top: var(--anchor-clearance);
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
@@ -55,6 +57,7 @@ p { line-height: 1.7; }
 .icon-button { width: 44px; height: 44px; display: inline-flex; justify-content: center; align-items: center; border: 0; background: transparent; color: inherit; border-radius: 4px; }
 .icon-button:hover { background: #ffffff12; }
 .section-pad { padding: 94px max(32px, calc((100vw - 1280px) / 2)); }
+#menu, #place, #tea { scroll-margin-top: calc(var(--header-height) - var(--anchor-clearance) - 8px); }
 
 .header { padding: 18px max(32px, calc((100vw - 1360px) / 2)); height: 94px; display: flex; align-items: center; justify-content: space-between; gap: 34px; position: sticky; top: 0; z-index: 20; background: var(--ink); border-bottom: 1px solid #302b26; }
 .brand { display: inline-flex; align-items: center; gap: 11px; flex-shrink: 0; }
@@ -259,7 +262,7 @@ dialog::backdrop { background: #000b; }
   .contacts-section { gap: 40px; }
 }
 @media (max-width: 800px) {
-  :root { scroll-padding-top: 92px; }
+  :root { --header-height: 76px; --anchor-clearance: 92px; }
   .section-pad { padding: 64px 24px; }
   .header { height: 76px; padding: 12px 24px; }
   .brand img { width: 42px; height: 42px; }
