@@ -1,0 +1,330 @@
+{
+  "narrative": {
+    "rules": [
+      {
+        "section": "colors",
+        "body": "Warm paper surfaces use ink text; charcoal surfaces use warm white text with muted supporting copy.",
+        "name": "The Surface Contrast Rule"
+      },
+      {
+        "section": "typography",
+        "body": "Use Oswald for headline and numeric emphasis, Golos for reading and operating the interface.",
+        "name": "The Two Voices Rule"
+      },
+      {
+        "section": "elevation",
+        "body": "Menu entries remain border-separated rows rather than raised tiles.",
+        "name": "The Flat Menu Rule"
+      }
+    ],
+    "northStar": "The Red Seal Café",
+    "dos": [
+      "Do preserve the 力 identity and verified organization photography.",
+      "Do keep menu rows flat and selected controls explicit.",
+      "Do preserve visible keyboard focus, labeled controls and reduced-motion behavior.",
+      "Do keep factual qualifications readable near the related action."
+    ],
+    "donts": [
+      "Don't replace the confirmed black/red identity with a new palette.",
+      "Don't imply an order or table is confirmed before administrator confirmation.",
+      "Don't let decorative seals, captions or fixed controls obscure actions."
+    ],
+    "keyCharacteristics": [
+      "Red seal identity and charcoal surfaces.",
+      "Condensed headings, readable Cyrillic body text.",
+      "Original photography with tilted stamps and captions.",
+      "Flat menu rows and keyboard-visible controls."
+    ],
+    "overview": "Li's confirmed black and red identity becomes charcoal menu boards, condensed Cyrillic headlines and the 力 seal. Original food, entrance and tea photographs carry the atmosphere; the faint decorative dragon remains a background accent. The warm paper tea surface gives the same identity a quieter register.\n\nThis records the shipped static implementation, not a new direction. Evidence: `site/styles.css`, `site/index.html`, `site/app.js`, `site/assets/oswald.css`, `site/assets/golos.css`; brand commitments in `PRODUCT.md`, provenance in `CONTENT_SOURCES.md`."
+  },
+  "components": [
+    {
+      "name": "Button primary",
+      "kind": "button",
+      "css": ".ds-button{min-height:54px;padding:16px 24px;border:1px solid transparent;border-radius:4px;font:600 14px/1.4 var(--body);cursor:pointer;transition:background-color .22s,color .22s;background:var(--red);color:var(--ink)}.ds-button:hover{background:#ff594b;color:var(--ink)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "html": "<button class=\"ds-button ds-primary\">Выбрать блюда</button>",
+      "description": "Shipped action variant.",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Button outline",
+      "kind": "button",
+      "css": ".ds-button{min-height:54px;padding:16px 24px;border:1px solid #726b61;border-radius:4px;font:600 14px/1.4 var(--body);cursor:pointer;transition:background-color .22s,color .22s;background:transparent;color:var(--white)}.ds-button:hover{background:var(--white);color:var(--ink)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "html": "<button class=\"ds-button ds-outline\">Выбрать блюда</button>",
+      "description": "Shipped action variant.",
+      "refersTo": "button-outline"
+    },
+    {
+      "name": "Button light",
+      "kind": "button",
+      "css": ".ds-button{min-height:54px;padding:16px 24px;border:1px solid transparent;border-radius:4px;font:600 14px/1.4 var(--body);cursor:pointer;transition:background-color .22s,color .22s;background:var(--paper);color:var(--ink)}.ds-button:hover{background:#fff;color:var(--ink)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "html": "<button class=\"ds-button ds-light\">Выбрать блюда</button>",
+      "description": "Shipped action variant.",
+      "refersTo": "button-light"
+    },
+    {
+      "name": "Button dark",
+      "kind": "button",
+      "css": ".ds-button{min-height:54px;padding:16px 24px;border:1px solid transparent;border-radius:4px;font:600 14px/1.4 var(--body);cursor:pointer;transition:background-color .22s,color .22s;background:var(--ink);color:var(--paper)}.ds-button:hover{background:#39332b;color:var(--paper)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}",
+      "html": "<button class=\"ds-button ds-dark\">Выбрать блюда</button>",
+      "description": "Shipped action variant.",
+      "refersTo": "button-dark"
+    },
+    {
+      "name": "Labeled field",
+      "kind": "input",
+      "css": ".ds-label{font:12px/1.6 var(--body);color:var(--white)}.ds-field{display:block;width:100%;min-height:48px;padding:12px 14px;margin-top:8px;background:var(--ink);color:var(--white);border:1px solid #726b61;border-radius:3px;font:13px var(--body)}.ds-field::placeholder{color:#aaa397;opacity:1}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}",
+      "html": "<label class=\"ds-label\">Имя<input class=\"ds-field\" placeholder=\"Ваше имя\"></label>",
+      "description": "Dark form field with a visible label.",
+      "refersTo": "field"
+    },
+    {
+      "name": "Category filter",
+      "kind": "chip",
+      "css": ".ds-category{border:1px solid #514c43;background:transparent;color:#c6c0b5;padding:12px 18px;min-height:44px;font:13px var(--body);border-radius:3px;cursor:pointer;transition:background-color .2s,color .2s}.ds-category:hover{border-color:var(--red);color:var(--white)}.ds-category[aria-pressed=true]{border-color:var(--red);background:var(--red);color:var(--ink);font-weight:600}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-category{transition:none}}",
+      "html": "<button class=\"ds-category\" aria-pressed=\"true\">Вок</button> <button class=\"ds-category\" aria-pressed=\"false\">Супы</button>",
+      "description": "Pressed category has explicit red selection.",
+      "refersTo": "category-selected"
+    },
+    {
+      "html": "<nav class=\"ds-nav\" aria-label=\"Навигация\"><a href=\"#menu\">Меню</a><a href=\"#tea\">Чай</a><a href=\"#contacts\">Контакты</a></nav>",
+      "kind": "nav",
+      "description": "Simple text links for charcoal header.",
+      "css": ".ds-nav{display:flex;gap:28px;background:var(--ink);color:var(--white);font:13px var(--body)}.ds-nav a{color:inherit;text-decoration:none;padding:14px 0;transition:color .2s}.ds-nav a:hover{color:var(--red)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}",
+      "name": "Navigation"
+    },
+    {
+      "html": "<article class=\"ds-row\"><div><h3>Лапша вок</h3><p>Состав блюда</p></div><div class=\"ds-action\"><strong>450 ₽</strong><button class=\"ds-add\" aria-label=\"Добавить блюдо\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\"><path d=\"M5 12h14M12 5v14\"/></svg></button></div></article>",
+      "kind": "custom",
+      "description": "Flat dish row with price and circular add control.",
+      "css": ".ds-row{display:flex;justify-content:space-between;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);color:var(--white);background:var(--panel)}.ds-row h3{margin:0;font:500 17px/1.5 var(--body)}.ds-row p{font:12px/1.6 var(--body);color:var(--muted)}.ds-action{width:96px;display:grid;gap:14px;justify-items:end}.ds-action strong{font:500 23px var(--display)}.ds-add{width:44px;height:44px;border:1px solid #726b61;border-radius:50%;background:transparent;color:var(--white);display:grid;place-content:center;cursor:pointer}.ds-add:hover{background:var(--red);color:var(--ink);border-color:var(--red)}.ds-button:focus-visible,.ds-field:focus-visible,.ds-category:focus-visible,.ds-nav a:focus-visible,.ds-add:focus-visible{outline:3px solid var(--red);outline-offset:5px}",
+      "name": "Menu row"
+    }
+  ],
+  "schemaVersion": 2,
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ],
+        "canonical": "#080808",
+        "role": "neutral",
+        "displayName": "ink"
+      },
+      "panel": {
+        "tonalRamp": [
+          "oklch(15% 0.0025 67.68)",
+          "oklch(26% 0.0025 67.68)",
+          "oklch(38% 0.0025 67.68)",
+          "oklch(49% 0.0025 67.68)",
+          "oklch(61% 0.0025 67.68)",
+          "oklch(72% 0.0025 67.68)",
+          "oklch(84% 0.0025 67.68)",
+          "oklch(95% 0.0025 67.68)"
+        ],
+        "canonical": "#171615",
+        "role": "neutral",
+        "displayName": "panel"
+      },
+      "red": {
+        "tonalRamp": [
+          "oklch(15% 0.2170 29.23)",
+          "oklch(26% 0.2170 29.23)",
+          "oklch(38% 0.2170 29.23)",
+          "oklch(49% 0.2170 29.23)",
+          "oklch(61% 0.2170 29.23)",
+          "oklch(72% 0.2170 29.23)",
+          "oklch(84% 0.2170 29.23)",
+          "oklch(95% 0.2170 29.23)"
+        ],
+        "canonical": "#ef3c2e",
+        "role": "primary",
+        "displayName": "red"
+      },
+      "red-deep": {
+        "tonalRamp": [
+          "oklch(15% 0.1969 29.06)",
+          "oklch(26% 0.1969 29.06)",
+          "oklch(38% 0.1969 29.06)",
+          "oklch(49% 0.1969 29.06)",
+          "oklch(61% 0.1969 29.06)",
+          "oklch(72% 0.1969 29.06)",
+          "oklch(84% 0.1969 29.06)",
+          "oklch(95% 0.1969 29.06)"
+        ],
+        "canonical": "#c9291f",
+        "role": "primary",
+        "displayName": "red-deep"
+      },
+      "paper": {
+        "tonalRamp": [
+          "oklch(15% 0.0242 85.79)",
+          "oklch(26% 0.0242 85.79)",
+          "oklch(38% 0.0242 85.79)",
+          "oklch(49% 0.0242 85.79)",
+          "oklch(61% 0.0242 85.79)",
+          "oklch(72% 0.0242 85.79)",
+          "oklch(84% 0.0242 85.79)",
+          "oklch(95% 0.0242 85.79)"
+        ],
+        "canonical": "#f0e8d7",
+        "role": "neutral",
+        "displayName": "paper"
+      },
+      "white": {
+        "tonalRamp": [
+          "oklch(15% 0.0142 84.58)",
+          "oklch(26% 0.0142 84.58)",
+          "oklch(38% 0.0142 84.58)",
+          "oklch(49% 0.0142 84.58)",
+          "oklch(61% 0.0142 84.58)",
+          "oklch(72% 0.0142 84.58)",
+          "oklch(84% 0.0142 84.58)",
+          "oklch(95% 0.0142 84.58)"
+        ],
+        "canonical": "#fffaf0",
+        "role": "neutral",
+        "displayName": "white"
+      },
+      "muted": {
+        "tonalRamp": [
+          "oklch(15% 0.0156 80.69)",
+          "oklch(26% 0.0156 80.69)",
+          "oklch(38% 0.0156 80.69)",
+          "oklch(49% 0.0156 80.69)",
+          "oklch(61% 0.0156 80.69)",
+          "oklch(72% 0.0156 80.69)",
+          "oklch(84% 0.0156 80.69)",
+          "oklch(95% 0.0156 80.69)"
+        ],
+        "canonical": "#b5afa5",
+        "role": "neutral",
+        "displayName": "muted"
+      },
+      "line": {
+        "tonalRamp": [
+          "oklch(15% 0.0118 78.15)",
+          "oklch(26% 0.0118 78.15)",
+          "oklch(38% 0.0118 78.15)",
+          "oklch(49% 0.0118 78.15)",
+          "oklch(61% 0.0118 78.15)",
+          "oklch(72% 0.0118 78.15)",
+          "oklch(84% 0.0118 78.15)",
+          "oklch(95% 0.0118 78.15)"
+        ],
+        "canonical": "#38342e",
+        "role": "neutral",
+        "displayName": "line"
+      },
+      "control-border": {
+        "tonalRamp": [
+          "oklch(15% 0.0176 76.96)",
+          "oklch(26% 0.0176 76.96)",
+          "oklch(38% 0.0176 76.96)",
+          "oklch(49% 0.0176 76.96)",
+          "oklch(61% 0.0176 76.96)",
+          "oklch(72% 0.0176 76.96)",
+          "oklch(84% 0.0176 76.96)",
+          "oklch(95% 0.0176 76.96)"
+        ],
+        "canonical": "#726b61",
+        "role": "neutral",
+        "displayName": "control-border"
+      },
+      "red-hover": {
+        "tonalRamp": [
+          "oklch(15% 0.2040 28.40)",
+          "oklch(26% 0.2040 28.40)",
+          "oklch(38% 0.2040 28.40)",
+          "oklch(49% 0.2040 28.40)",
+          "oklch(61% 0.2040 28.40)",
+          "oklch(72% 0.2040 28.40)",
+          "oklch(84% 0.2040 28.40)",
+          "oklch(95% 0.2040 28.40)"
+        ],
+        "canonical": "#ff594b",
+        "role": "primary",
+        "displayName": "red-hover"
+      }
+    },
+    "breakpoints": [
+      {
+        "name": "wide-hero",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1150px"
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "800px"
+      },
+      {
+        "name": "single-column",
+        "value": "560px"
+      }
+    ],
+    "shadows": [
+      {
+        "value": "0 8px 24px #0006",
+        "purpose": "Fixed mobile cart.",
+        "name": "floating-cart"
+      }
+    ],
+    "motion": [
+      {
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Entrances and arrow movement.",
+        "name": "entrance-ease"
+      },
+      {
+        "value": "350ms",
+        "purpose": "Cart drawer entrance.",
+        "name": "drawer"
+      },
+      {
+        "value": "250ms",
+        "purpose": "Booking entrance.",
+        "name": "dialog"
+      },
+      {
+        "value": "300ms",
+        "purpose": "Toast and arrow movement.",
+        "name": "feedback"
+      }
+    ],
+    "typographyMeta": {
+      "label": {
+        "displayName": "Label",
+        "purpose": "Supporting controls and metadata."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Dish names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings with contextual overrides."
+      }
+    }
+  },
+  "generatedAt": "2026-10-11T09:39:32.9856055Z",
+  "title": "Design System: Ли 力 Wok & Tea"
+}
