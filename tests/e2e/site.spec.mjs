@@ -8,7 +8,7 @@ test('ribbon loops without hover pause and exposes all text under reduced motion
   await ribbon.hover();
   expect(await track.evaluate(element => getComputedStyle(element).animationPlayState)).toBe('running');
   const before = await track.evaluate(element => element.getBoundingClientRect().x);
-  await expect.poll(() => track.evaluate(element => Math.abs(element.getBoundingClientRect().x - before))).toBeGreaterThan(3);
+  await expect.poll(() => track.evaluate((element, initialX) => Math.abs(element.getBoundingClientRect().x - initialX), before)).toBeGreaterThan(3);
   expect(await track.evaluate(element => getComputedStyle(element).animationIterationCount)).toBe('infinite');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(await track.evaluate(element => getComputedStyle(element).animationName)).toBe('none');
