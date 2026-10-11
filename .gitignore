@@ -1,0 +1,10 @@
+node_modules/
+dist/
+artifacts/
+.cache/
+.env*
+secrets/
+Всё для дизайна/
+.impeccable/
+playwright-report/
+test-results/
