@@ -2,6 +2,35 @@ import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => { await page.goto('/'); await expect(page.locator('.menu-item')).toHaveCount(8); });
 
+test('ribbon loops without hover pause and exposes all text under reduced motion', async ({ page }) => {
+  const ribbon = page.locator('.brand-ribbon');
+  const track = page.locator('.ribbon-track');
+  await ribbon.hover();
+  expect(await track.evaluate(element => getComputedStyle(element).animationPlayState)).toBe('running');
+  const before = await track.evaluate(element => element.getBoundingClientRect().x);
+  await expect.poll(() => track.evaluate(element => Math.abs(element.getBoundingClientRect().x - before))).toBeGreaterThan(3);
+  expect(await track.evaluate(element => getComputedStyle(element).animationIterationCount)).toBe('infinite');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect(await track.evaluate(element => getComputedStyle(element).animationName)).toBe('none');
+  await expect(page.locator('.ribbon-set:visible')).toHaveCount(1);
+  const phrases = await page.locator('.ribbon-set').first().locator('span:not(.ribbon-seal)').evaluateAll(elements => elements.map(element => {
+    const box=element.getBoundingClientRect();
+    return {text:element.textContent,left:box.left,right:box.right,width:window.innerWidth};
+  }));
+  expect(phrases).toHaveLength(3);
+  for (const phrase of phrases) { expect(phrase.left).toBeGreaterThanOrEqual(0); expect(phrase.right).toBeLessThanOrEqual(phrase.width); }
+});
+
+test('link preview uses a wide homepage cover served as JPEG', async ({ page, request }) => {
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /social-cover-v2\.jpg$/);
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content','1200');
+  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content','630');
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content','summary_large_image');
+  const response = await request.get('/assets/social-cover-v2.jpg');
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toBe('image/jpeg');
+});
+
 test('section navigation hides previous-section strips under the header', async ({ page }, testInfo) => {
   for (const [name, id] of [['Меню', 'menu'], ['Наше место', 'place'], ['Чай', 'tea']]) {
     if (testInfo.project.name === 'mobile') {

@@ -127,6 +127,8 @@ At (1150px) the header phone hides and compositions tighten. At (800px), padding
 
 Sticky-header anchor clearance is (112px), changing to (92px) at the tablet breakpoint. Menu, place and tea compensate this clearance with a negative scroll margin, placing their section edge (8px) under the fixed header so previous-section strips remain hidden. Contacts retain their original anchor behavior. Keep actions and photo captions spatially separate when reducing widths.
 
+The red identity ribbon is a slow continuous horizontal loop of three equal repeated sets. Hover does not pause it. Reduced-motion displays one static wrapping set with all three phrases visible, hiding decorative separators and duplicates.
+
 ## Elevation & Depth
 
 Surfaces are predominantly flat, separated by tone and thin borders. Original photographs, red rings, seals and slightly rotated stamps supply depth. Photo captions use translucent ink backing for legibility. The only box shadow is the floating mobile cart (`0 8px 24px #0006`); it signals its fixed position. Modal backdrops dim the page (`#000b`).
